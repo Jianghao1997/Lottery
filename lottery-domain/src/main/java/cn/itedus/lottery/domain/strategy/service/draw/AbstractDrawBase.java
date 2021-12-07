@@ -76,7 +76,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         IDrawAlgorithm drawAlgorithm = drawAlgorithmGroup.get(strategyMode);
 
         // 3.对已初始化的数据，不必重复初始化
-        if (drawAlgorithm.isExistRateTuple(strategyId)) {
+        if (drawAlgorithm.isExist(strategyId)) {
             return;
         }
 
@@ -86,7 +86,7 @@ public abstract class AbstractDrawBase extends DrawStrategySupport implements ID
         for (StrategyDetailBriefVO strategyDetail : strategyDetailList) {
             awardRateInfoList.add(new AwardRateInfo(strategyDetail.getAwardId(), strategyDetail.getAwardRate()));
         }
-        drawAlgorithm.initRateTuple(strategyId, awardRateInfoList);
+        drawAlgorithm.initRateTuple(strategyId, strategyMode, awardRateInfoList);
     }
 
     /**

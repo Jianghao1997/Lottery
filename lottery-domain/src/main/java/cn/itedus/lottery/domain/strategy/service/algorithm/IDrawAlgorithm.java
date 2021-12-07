@@ -29,9 +29,10 @@ public interface IDrawAlgorithm {
      * 5. 当后续通过随机数获取到1-100的值后，可以直接定位到对应的奖品信息，通过这样的方式把轮训算奖的时间复杂度从O(n) 降低到 0(1)
      *
      * @param strategyId         策略ID
+     * @param strategyMode      抽奖策略模式
      * @param awardRateInfoList  奖品概率配置集合 「值示例：AwardRateInfo.awardRate = 0.04」
      */
-    void initRateTuple(Long strategyId, List<AwardRateInfo> awardRateInfoList);
+    void initRateTuple(Long strategyId, Integer strategyMode, List<AwardRateInfo> awardRateInfoList);
 
     /**
      * SecureRandom 生成随机数，索引到对应的奖品信息返回结果
@@ -47,5 +48,5 @@ public interface IDrawAlgorithm {
      * @param strategyId
      * @return
      */
-    boolean isExistRateTuple(Long strategyId);
+    boolean isExist(Long strategyId);
 }
