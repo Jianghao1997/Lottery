@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * Package: cn.itedus.lottery.infrastructure.po
@@ -22,7 +23,7 @@ public class StrategyDetail {
     /**
      * 自增id
      */
-    private String id;
+    private Long id;
     /**
      * 策略id
      */
@@ -56,9 +57,9 @@ public class StrategyDetail {
     /**
      * 创建时间
      */
-    private String createTime;
+    private Date createTime;
     /**
      * 修改时间
      */
-    private String updateTime;
+    private Date updateTime;
 }

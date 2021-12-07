@@ -39,7 +39,12 @@ public abstract class BaseAlgorithm implements IDrawAlgorithm{
     protected Map<Long, List<AwardRateInfo>> awardRateInfoMap = new ConcurrentHashMap<>();
 
     @Override
-    public void initRateTuple(Long strategyId, Integer strategyMode, List<AwardRateInfo> awardRateInfoList) {
+    public synchronized void initRateTuple(Long strategyId, Integer strategyMode, List<AwardRateInfo> awardRateInfoList) {
+
+        // 前置判断
+        if (isExist(strategyId)){
+            return;
+        }
 
         // 保存奖品概率信息
         awardRateInfoMap.put(strategyId, awardRateInfoList);
